@@ -1,18 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Animal : MonoBehaviour
+[CreateAssetMenu(menuName = "Configs/Animal", fileName = "New Animal Config")]
+public class Animal : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Mesh animalMesh;
+    [SerializeField] private Material animalMaterial;
+    [SerializeField] private int animalRank = 0;
+
+    public Mesh GetAnimalMesh
     {
-        
+        get { return animalMesh; }
     }
 
-    // Update is called once per frame
-    void Update()
+    public Material GetAnimalMaterial
     {
-        
+        get { return animalMaterial; }
     }
+
+    public int GetAnimalRank
+    {
+        get { return animalRank; }
+    }
+
 }
