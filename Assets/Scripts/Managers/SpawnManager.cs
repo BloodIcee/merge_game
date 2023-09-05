@@ -15,6 +15,7 @@ public class SpawnManager : GameManager
     public void SpawnAnimal()
     {
         bool hasEmptyCell = spawnCells.Any(item => item.isEmpty);
+
         if (!hasEmptyCell) return;
 
         Cell[] emptyCells = spawnCells.Where(item => item.isEmpty).ToArray();
@@ -23,5 +24,7 @@ public class SpawnManager : GameManager
 
         emptyCells[a].isEmpty = false;
         emptyCells[a].animals[config.GetSpawnAnimalTier].SetActive(true);
+
+        //UIManager.instance.buyButton.interactable = spawnCells.Any(item => item.isEmpty);
     }
 }

@@ -69,7 +69,7 @@ public class TileElement : MonoBehaviour
             }
             else if (!cellTemp.isEmpty)
             {
-                if (cellTemp.currentAnimalTier == currentCell.currentAnimalTier && cellTemp.currentAnimalTier + 1 <= cellTemp.animals.Length)
+                if (cellTemp.currentAnimalTier == currentCell.currentAnimalTier && cellTemp.currentAnimalTier + 1 < cellTemp.animals.Length)
                 {
                     ResetPosition();
                     Merge();
@@ -125,8 +125,8 @@ public class TileElement : MonoBehaviour
 
         currentCell.isEmpty = true;
 
-        currentCell.currentAnimalTier = 0;
         cellTemp.currentAnimalTier = currentCell.currentAnimalTier;
+        currentCell.currentAnimalTier = 0;
 
         cellTemp.currentAnimalTier++;
         cellTemp.animals[cellTemp.currentAnimalTier].SetActive(true);
