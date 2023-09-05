@@ -5,6 +5,7 @@ public class Animal : ScriptableObject
 {
     [SerializeField] private int animalRank = 0;
     [SerializeField] private int animalDamage = 10;
+    [SerializeField] private int health = 30;
 
     public int GetAnimalRank
     {
@@ -14,6 +15,11 @@ public class Animal : ScriptableObject
     public int GetAnimalDamage
     {
         get { return animalDamage; }
+    }
+
+    public int GetHealth
+    {
+        get { return health; }
     }
 
 }

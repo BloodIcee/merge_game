@@ -41,6 +41,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3268624882761368464}
     m_Modifications:
+    - target: {fileID: 166528590795562391, guid: 2ed57b53c480ec14d85ab15acd1b3eab, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 8799c9574ef474a41b8edcc6f1421496, type: 2}
     - target: {fileID: 166528590802955863, guid: 2ed57b53c480ec14d85ab15acd1b3eab, type: 3}
       propertyPath: m_Name
       value: Boar
@@ -119,6 +123,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3268624882761368464}
     m_Modifications:
+    - target: {fileID: 3858644389274870194, guid: 08d1bc36e8f67e24b8248cfbd0119e01, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 7c05beb634bfdce4092d676300bd461d, type: 2}
     - target: {fileID: 3858644389284352634, guid: 08d1bc36e8f67e24b8248cfbd0119e01, type: 3}
       propertyPath: m_Name
       value: RedFox
@@ -197,6 +205,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3268624882761368464}
     m_Modifications:
+    - target: {fileID: 3858644389274870194, guid: 7609626c15fe4ec4ea6bbf6f37fa31d5, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: e3ebb8baed7533741aad58c0743d674c, type: 2}
     - target: {fileID: 3858644389284352634, guid: 7609626c15fe4ec4ea6bbf6f37fa31d5, type: 3}
       propertyPath: m_Name
       value: BlackFox

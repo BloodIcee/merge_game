@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c958a1222729039459daf3069705cb60, type: 3}
   m_Name: 2_BlackFox
   m_EditorClassIdentifier: 
-  animalMesh: {fileID: 4300000, guid: b4dc3c74541def84191303ea727d9a51, type: 3}
-  animalMaterial: {fileID: 2100000, guid: 4eb865355a6fd8b4683a14ccf7f42a21, type: 2}
   animalRank: 0
+  animalDamage: 30
+  health: 30

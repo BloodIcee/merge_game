@@ -7,6 +7,7 @@ public class GameConfig : ScriptableObject
 
     [SerializeField] private int startMoney = 300;
     [SerializeField] private int purchasePrice = 30;
+    [SerializeField] private int prizePerWin = 50;
 
     public int GetSpawnAnimalTier
     {
@@ -22,5 +23,11 @@ public class GameConfig : ScriptableObject
     {
         get { return purchasePrice; }
     }
+
+    public int GetPrizePerWin
+    {
+        get { return prizePerWin; }
+    }
+
 
 }

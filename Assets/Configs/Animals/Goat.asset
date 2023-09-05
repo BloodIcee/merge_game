@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c958a1222729039459daf3069705cb60, type: 3}
-  m_Name: 1_RedFox
+  m_Name: Goat
   m_EditorClassIdentifier: 
   animalRank: 0
-  animalDamage: 20
+  animalDamage: 0
   health: 30
