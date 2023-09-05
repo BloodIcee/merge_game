@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Game Config
   m_EditorClassIdentifier: 
   spawnAnimalTier: 0
+  startMoney: 300
+  purchasePrice: 30

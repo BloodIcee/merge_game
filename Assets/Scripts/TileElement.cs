@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class TileElement : MonoBehaviour
@@ -55,7 +54,7 @@ public class TileElement : MonoBehaviour
         isMoving = false;
         isDragging = false;
 
-        if (isCollidingWithCell)
+        if (isCollidingWithCell && currentCell != cellTemp)
         {
             if (cellTemp.isEmpty)
             {

@@ -1,22 +1,36 @@
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public class SpawnManager : GameManager
 {
-    [SerializeField] private Cell[] spawnCells;
+    [SerializeField] private List<Cell> spawnCells;
 
     [SerializeField] private GameObject animalPrefab;
 
+    public static SpawnManager instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     private void Start()
     {
-        SpawnAnimal();
+        LoadCells();
     }
 
     public void SpawnAnimal()
     {
         bool hasEmptyCell = spawnCells.Any(item => item.isEmpty);
 
-        if (!hasEmptyCell) return;
+        int tempMoney = GetMoney();
+
+        Debug.Log(tempMoney);
+
+        if (!hasEmptyCell || tempMoney < config.GetPurchasePrice) return;
+
+        UpdateMoney(-config.GetPurchasePrice);
 
         Cell[] emptyCells = spawnCells.Where(item => item.isEmpty).ToArray();
 
@@ -24,7 +38,22 @@ public class SpawnManager : GameManager
 
         emptyCells[a].isEmpty = false;
         emptyCells[a].animals[config.GetSpawnAnimalTier].SetActive(true);
+    }
 
-        //UIManager.instance.buyButton.interactable = spawnCells.Any(item => item.isEmpty);
+    private void LoadCells()
+    {
+        List<CellSave> loadedCells = JSONSave.LoadCellsFromJson();
+
+        for (int i = 0; i < loadedCells.Count; i++)
+        {
+            spawnCells[i].isEmpty = loadedCells[i].isEmpty;
+            spawnCells[i].currentAnimalTier = loadedCells[i].currentAnimalTier;
+            if (!spawnCells[i].isEmpty) spawnCells[i].animals[spawnCells[i].currentAnimalTier].SetActive(true);
+        }
+    }
+
+    public List<Cell> GetAllCells 
+    {
+        get { return spawnCells; }
     }
 }
