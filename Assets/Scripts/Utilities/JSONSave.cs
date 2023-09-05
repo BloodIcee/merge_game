@@ -16,6 +16,17 @@ public class JSONSave : MonoBehaviour
 
     public static void SaveCellsToJson(List<Cell> cells, SaveType type)
     {
+        string savePathAll;
+        string savePathHunt;
+
+#if UNITY_ANDROID && !UNITY_EDITOR
+        savePathAll = Path.Combine(Application.persistentDataPath, "save.json");
+        savePathHunt = Path.Combine(Application.persistentDataPath, "saveHunt.json");
+#else
+        savePathAll = Path.Combine(Application.dataPath, "save.json");
+        savePathHunt = Path.Combine(Application.dataPath, "saveHunt.json");
+#endif
+
         List<CellSave> cellSave = new List<CellSave>(cells.Count);
 
         for (int i = 0; i < cells.Count; i++)
@@ -32,11 +43,11 @@ public class JSONSave : MonoBehaviour
         
         if (type == SaveType.All)
         {
-            File.WriteAllText(Application.dataPath + "/Saves/save.json", json);
+            File.WriteAllText(savePathAll, json);
         }
         else if (type == SaveType.Hunt)
         {
-            File.WriteAllText(Application.dataPath + "/Saves/saveHunt.json", json);
+            File.WriteAllText(savePathHunt, json);
         }
 
         try
@@ -52,15 +63,26 @@ public class JSONSave : MonoBehaviour
 
     public static List<CellSave> LoadCellsFromJson(SaveType type)
     {
+        string savePathAll;
+        string savePathHunt;
+
+#if UNITY_ANDROID && !UNITY_EDITOR
+        savePathAll = Path.Combine(Application.persistentDataPath, "save.json");
+        savePathHunt = Path.Combine(Application.persistentDataPath, "saveHunt.json");
+#else
+        savePathAll = Path.Combine(Application.dataPath, "save.json");
+        savePathHunt = Path.Combine(Application.dataPath, "saveHunt.json");
+#endif
+
         string json = "";
 
         if (type == SaveType.All)
         {
-            json = File.ReadAllText(Application.dataPath + "/Saves/save.json");
+            json = File.ReadAllText(savePathAll);
         }
         else if (type == SaveType.Hunt)
         {
-            json = File.ReadAllText(Application.dataPath + "/Saves/saveHunt.json");
+            json = File.ReadAllText(savePathHunt);
         }
 
         List<CellSave> cells = JsonConvert.DeserializeObject<List<CellSave>>(json);
