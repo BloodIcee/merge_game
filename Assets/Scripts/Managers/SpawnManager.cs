@@ -61,6 +61,6 @@ public class SpawnManager : GameManager
 
     public List<Cell> GetHuntCells
     {
-        get { return spawnCells; }
+        get { return huntCells; }
     }
 }

@@ -27,7 +27,7 @@ public class UIManager : GameManager
     public void StartHunt()
     {
         JSONSave.SaveCellsToJson(SpawnManager.instance.GetAllCells, JSONSave.SaveType.All);
-        JSONSave.SaveCellsToJson(SpawnManager.instance.GetAllCells, JSONSave.SaveType.Hunt);
+        JSONSave.SaveCellsToJson(SpawnManager.instance.GetHuntCells, JSONSave.SaveType.Hunt);
 
         SceneManager.LoadScene(1);
     }

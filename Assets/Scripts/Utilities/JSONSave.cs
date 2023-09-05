@@ -39,8 +39,6 @@ public class JSONSave : MonoBehaviour
             File.WriteAllText(Application.dataPath + "/Saves/saveHunt.json", json);
         }
 
-        Debug.Log(json);
-
         try
         {
             
