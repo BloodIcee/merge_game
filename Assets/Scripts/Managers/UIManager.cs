@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
@@ -25,7 +26,10 @@ public class UIManager : GameManager
 
     public void StartHunt()
     {
-        JSONSave.SaveCellsToJson(SpawnManager.instance.GetAllCells);
+        JSONSave.SaveCellsToJson(SpawnManager.instance.GetAllCells, JSONSave.SaveType.All);
+        JSONSave.SaveCellsToJson(SpawnManager.instance.GetAllCells, JSONSave.SaveType.Hunt);
+
+        SceneManager.LoadScene(1);
     }
 
     public void UpdateMoneyText(int money)

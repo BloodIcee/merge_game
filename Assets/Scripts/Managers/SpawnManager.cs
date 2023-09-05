@@ -6,6 +6,8 @@ public class SpawnManager : GameManager
 {
     [SerializeField] private List<Cell> spawnCells;
 
+    [SerializeField] private List<Cell> huntCells;
+
     [SerializeField] private GameObject animalPrefab;
 
     public static SpawnManager instance;
@@ -42,7 +44,7 @@ public class SpawnManager : GameManager
 
     private void LoadCells()
     {
-        List<CellSave> loadedCells = JSONSave.LoadCellsFromJson();
+        List<CellSave> loadedCells = JSONSave.LoadCellsFromJson(JSONSave.SaveType.All);
 
         for (int i = 0; i < loadedCells.Count; i++)
         {
@@ -53,6 +55,11 @@ public class SpawnManager : GameManager
     }
 
     public List<Cell> GetAllCells 
+    {
+        get { return spawnCells; }
+    }
+
+    public List<Cell> GetHuntCells
     {
         get { return spawnCells; }
     }

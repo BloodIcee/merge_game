@@ -6,7 +6,15 @@ using Newtonsoft.Json;
 
 public class JSONSave : MonoBehaviour
 {
-    public static void SaveCellsToJson(List<Cell> cells)
+    public enum SaveType
+    {
+        All,
+        Hunt
+    }
+
+    public SaveType savetype;
+
+    public static void SaveCellsToJson(List<Cell> cells, SaveType type)
     {
         List<CellSave> cellSave = new List<CellSave>(cells.Count);
 
@@ -21,7 +29,15 @@ public class JSONSave : MonoBehaviour
         }
 
         string json = JsonConvert.SerializeObject(cellSave);
-        File.WriteAllText(Application.dataPath + "/Saves/save.json", json);
+        
+        if (type == SaveType.All)
+        {
+            File.WriteAllText(Application.dataPath + "/Saves/save.json", json);
+        }
+        else if (type == SaveType.Hunt)
+        {
+            File.WriteAllText(Application.dataPath + "/Saves/saveHunt.json", json);
+        }
 
         Debug.Log(json);
 
@@ -36,9 +52,18 @@ public class JSONSave : MonoBehaviour
         }
     }
 
-    public static List<CellSave> LoadCellsFromJson()
+    public static List<CellSave> LoadCellsFromJson(SaveType type)
     {
-        string json = File.ReadAllText(Application.dataPath + "/Saves/save.json");
+        string json = "";
+
+        if (type == SaveType.All)
+        {
+            json = File.ReadAllText(Application.dataPath + "/Saves/save.json");
+        }
+        else if (type == SaveType.Hunt)
+        {
+            json = File.ReadAllText(Application.dataPath + "/Saves/saveHunt.json");
+        }
 
         List<CellSave> cells = JsonConvert.DeserializeObject<List<CellSave>>(json);
 
